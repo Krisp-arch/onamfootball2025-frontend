@@ -578,12 +578,11 @@ const RegistrationPage = () => {
                 <div className="flex flex-col items-center">
                   <h3 className="font-semibold mb-2">UPI / QR Payment</h3>
                   <img
-                    src={upiQR}
-                    alt="UPI QR Code for Rage Football Academy"
-                    className="w-40 h-40 object-contain rounded mb-2 border"
-                    style={{ imageRendering: 'pixelated' }}
-                  />
-                  <div className="text-sm text-center">
+						src={upiQR}
+						alt="UPI QR Code"
+						style={{ width: '220px', height: '220px', objectFit: 'contain', imageRendering: 'pixelated' }}
+					/>
+					<div className="text-sm text-center">
                     <div><strong>UPI ID:</strong> 8883210696@okbizaxis</div>
                     <div className="text-gray-500">(Scan with any UPI app)</div>
                   </div>
@@ -596,27 +595,6 @@ const RegistrationPage = () => {
                   info@ragefootballclub.com
                 </a>{' '}
                 or WhatsApp: <strong>+91 88832 10696</strong>.
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
-
-        {/* How to Register Section */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.8 }}
-          className="mt-8"
-        >
-          <Card>
-            <CardHeader>
-              <CardTitle>How To Register and Pay</CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-sm text-gray-600 space-y-2">
-                <p>After submitting your registration form (player or team),</p>
-                <p>You will be directed to a payment information page displaying RAGE Academy account details (UPI, NET BANKING).</p>
-                <p>Once payment is completed, Please send the payment confirmation to info@ragefootballclub.com or via WhatsApp to +91 88832 10696.</p>
               </div>
             </CardContent>
           </Card>
