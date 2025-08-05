@@ -548,57 +548,87 @@ const RegistrationPage = () => {
           </Card>
         </motion.div>
 
-        {/* Payment Information */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.6 }}
-          className="mt-8"
+  {/* Payment Information */}
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="mt-10"
+>
+  <Card className="max-w-2xl mx-auto shadow-xl !p-0">
+    <CardHeader className="pb-2">
+      <CardTitle className="text-2xl font-bold mb-1">Payment Information</CardTitle>
+      <CardDescription>
+        Please pay the registration fee after submitting your form using either method below.
+      </CardDescription>
+    </CardHeader>
+    <CardContent className="flex flex-col md:flex-row gap-10 items-center md:items-start px-6 pb-6">
+      {/* Bank Details */}
+      <div className="flex-1 w-full">
+        <div className="mb-3">
+          <span className="inline-block px-3 py-1 rounded bg-blue-100 text-blue-800 text-xs font-semibold mb-2">Bank Transfer Details</span>
+        </div>
+        <div className="space-y-2 text-base pl-1">
+          <div>
+            <span className="font-semibold text-gray-700">Account Holder:</span><br />
+            REMONTADA INDIA (OPC) PRIVATE LIMITED
+          </div>
+          <div>
+            <span className="font-semibold text-gray-700">Account Number:</span><br />
+            50200091136498
+          </div>
+          <div>
+            <span className="font-semibold text-gray-700">IFSC:</span><br />
+            HDFC0000045
+          </div>
+        </div>
+      </div>
+      {/* UPI/QR Section */}
+      <div className="flex-1 w-full flex flex-col items-center justify-center">
+        <div className="mb-2">
+          <span className="inline-block px-3 py-1 rounded bg-green-100 text-green-900 text-xs font-semibold mb-2">UPI / QR Payment</span>
+        </div>
+        <img
+          src={upiQR}
+          alt="Scan UPI QR"
+          style={{
+            width: 220,
+            height: 220,
+            objectFit: 'contain',
+            background: '#fff',
+            borderRadius: 12,
+            boxShadow: '0 4px 18px 0 rgba(0,0,0,0.07)',
+            padding: 8,
+            marginBottom: 8,
+            imageRendering: 'crisp-edges', // best for high-res QR
+            border: '1.5px solid #e0e7ef'
+          }}
+          className="qr-img"
+          loading="lazy"
+        />
+        <div className="text-center text-base">
+          <div>
+            <span className="font-semibold">UPI ID:</span> 8883210696@okbizaxis
+          </div>
+          <div className="text-xs text-gray-500 pt-1">(Scan with any UPI app)</div>
+        </div>
+      </div>
+    </CardContent>
+    <div className="bg-blue-50 px-6 pb-6">
+      <div className="text-sm mt-3 px-3 py-2 rounded-md">
+        <strong>After payment</strong>, send your payment confirmation to&nbsp;
+        <a
+          href="mailto:info@ragefootballclub.com"
+          className="text-blue-700 font-medium underline"
         >
-          <Card>
-            <CardHeader>
-              <CardTitle>Payment Information</CardTitle>
-              <CardDescription>
-                Please pay the registration fee after submitting your form using either method below.
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
-              <div className="flex flex-col md:flex-row gap-6 items-center">
-                {/* Bank Details */}
-                <div className="flex-1">
-                  <h3 className="font-semibold mb-2">Bank Transfer Details</h3>
-                  <div className="space-y-1 text-sm">
-                    <div><strong>Account Holder:</strong> REMONTADA INDIA (OPC) PRIVATE LIMITED</div>
-                    <div><strong>Account Number:</strong> 50200091136498</div>
-                    <div><strong>IFSC:</strong> HDFC0000045</div>
-                  </div>
-                </div>
-                
-                {/* UPI QR and Details */}
-                <div className="flex flex-col items-center">
-                  <h3 className="font-semibold mb-2">UPI / QR Payment</h3>
-                  <img
-						src={upiQR}
-						alt="UPI QR Code"
-						style={{ width: '220px', height: '220px', objectFit: 'contain', imageRendering: 'pixelated' }}
-					/>
-					<div className="text-sm text-center">
-                    <div><strong>UPI ID:</strong> 8883210696@okbizaxis</div>
-                    <div className="text-gray-500">(Scan with any UPI app)</div>
-                  </div>
-                </div>
-              </div>
-              
-              <div className="mt-4 text-sm bg-blue-50 p-3 rounded-md">
-                <strong>After payment</strong>, send your payment confirmation to{' '}
-                <a href="mailto:info@ragefootballclub.com" className="text-blue-600 hover:underline">
-                  info@ragefootballclub.com
-                </a>{' '}
-                or WhatsApp: <strong>+91 88832 10696</strong>.
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
+          info@ragefootballclub.com
+        </a>
+        &nbsp;or WhatsApp: <strong>+91 88832 10696</strong>.
+      </div>
+    </div>
+  </Card>
+</motion.div>
+
 
         {/* Contact Section */}
         <motion.div
