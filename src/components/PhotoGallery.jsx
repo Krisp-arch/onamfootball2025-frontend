@@ -12,16 +12,19 @@ import tournamentLogo from '../assets/logo400.png';
 import { API_ENDPOINTS } from '../config/api';
 
 // For fetching photos:
-const response = await fetch(API_ENDPOINTS.GALLERY_PHOTOS);
+const photosResponse = await fetch(API_ENDPOINTS.GALLERY_PHOTOS);
+const photosData = await photosResponse.json();
 
 // For admin login:
-const response = await fetch(API_ENDPOINTS.ADMIN_LOGIN, {
+const loginResponse = await fetch(API_ENDPOINTS.ADMIN_LOGIN, {
   method: 'POST',
   headers: {
     'Content-Type': 'application/json',
   },
   body: JSON.stringify({ password: adminPassword })
 });
+const loginData = await loginResponse.json();
+
 
 const PhotoGallery = () => {
   const [photos, setPhotos] = useState([]);
