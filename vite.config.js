@@ -1,17 +1,20 @@
 import { defineConfig } from 'vite'
 import react from '@vitejs/plugin-react'
-import tailwindcss from '@tailwindcss/vite'
 import path from 'path'
 
 export default defineConfig({
-  plugins: [react(), tailwindcss()],
+  plugins: [react()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
     },
   },
   build: {
-    outDir: 'dist'
+    target: 'es2022', // Support top-level await
+    rollupOptions: {
+      output: {
+        manualChunks: undefined,
+      },
+    },
   },
-  // Remove the server proxy - we'll handle API calls differently
 })

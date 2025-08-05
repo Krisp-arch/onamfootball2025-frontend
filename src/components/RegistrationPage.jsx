@@ -14,13 +14,6 @@ import tournamentLogo from '../assets/logo400.png';
 import upiQR from '../assets/upi_qr.jpg';
 import { API_ENDPOINTS } from '../config/api';
 
-const response = await fetch(API_ENDPOINTS.REGISTER_PLAYER, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(playerForm)
-});
 
 const RegistrationPage = () => {
   const [playerForm, setPlayerForm] = useState({
@@ -99,7 +92,7 @@ const RegistrationPage = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/register-player', {
+      const response = await fetch(API_ENDPOINTS.REGISTER_PLAYER, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -157,7 +150,7 @@ const RegistrationPage = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/register-team', {
+      const response = await fetch(API_ENDPOINTS.REGISTER_TEAM, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -211,7 +204,7 @@ const RegistrationPage = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/register-sponsor', {
+      const response = await fetch(API_ENDPOINTS.REGISTER_SPONSOR, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

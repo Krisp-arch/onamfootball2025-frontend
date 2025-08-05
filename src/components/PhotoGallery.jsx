@@ -11,19 +11,7 @@ import { motion } from 'framer-motion';
 import tournamentLogo from '../assets/logo400.png';
 import { API_ENDPOINTS } from '../config/api';
 
-// For fetching photos:
-const photosResponse = await fetch(API_ENDPOINTS.GALLERY_PHOTOS);
-const photosData = await photosResponse.json();
 
-// For admin login:
-const loginResponse = await fetch(API_ENDPOINTS.ADMIN_LOGIN, {
-  method: 'POST',
-  headers: {
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify({ password: adminPassword })
-});
-const loginData = await loginResponse.json();
 
 
 const PhotoGallery = () => {
@@ -58,7 +46,7 @@ const PhotoGallery = () => {
   const fetchPhotos = async () => {
     setFetchingPhotos(true);
     try {
-      const response = await fetch('/api/gallery-photos');
+      const response = await fetch(API_ENDPOINTS.GALLERY_PHOTOS);
       const result = await response.json();
       
       if (response.ok) {
@@ -80,7 +68,7 @@ const PhotoGallery = () => {
   const handleAdminLogin = async () => {
     setLoading(true);
     try {
-      const response = await fetch('/api/admin-login', {
+       const response = await fetch(API_ENDPOINTS.ADMIN_LOGIN, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -159,7 +147,7 @@ const PhotoGallery = () => {
       formData.append('description', uploadForm.description.trim());
       formData.append('category', uploadForm.category);
 
-      const response = await fetch('/api/gallery-upload', {
+      const response = await fetch(API_ENDPOINTS.GALLERY_UPLOAD, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${adminToken}`
@@ -211,7 +199,7 @@ const PhotoGallery = () => {
     setLoading(true);
     
     try {
-      const response = await fetch('/api/gallery-delete', {
+      const response = await fetch(API_ENDPOINTS.GALLERY_DELETE', {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
