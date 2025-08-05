@@ -199,7 +199,7 @@ const PhotoGallery = () => {
     setLoading(true);
     
     try {
-      const response = await fetch(API_ENDPOINTS.GALLERY_DELETE', {
+      const response = await fetch(API_ENDPOINTS.GALLERY_DELETE, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
