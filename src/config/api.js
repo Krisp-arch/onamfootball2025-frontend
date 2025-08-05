@@ -1,4 +1,5 @@
-const API_BASE_URL = 'https://onamfootball2025-api.vercel.app';
+const API_BASE_URL = import.meta.env.VITE_API_BASE_URL
+  || 'https://onamfootball2025-api.vercel.app';
 
 export const API_ENDPOINTS = {
   REGISTER_PLAYER: `${API_BASE_URL}/api/register-player`,
