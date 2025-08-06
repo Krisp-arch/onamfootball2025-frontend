@@ -10,18 +10,18 @@ import { Camera, Upload, Trash2, Edit, Eye, Lock, Unlock, Plus, X, Search, Refre
 import { motion } from 'framer-motion';
 import tournamentLogo from '../assets/logo400.png';
 /*import { API_ENDPOINTS } from '../config/api';*/
-import insta1 from '../assets/insta1.jpg';
-import insta2 from '../assets/insta2.jpg';
-import insta3 from '../assets/insta3.jpg';
-import insta4 from '../assets/insta4.jpg';
-import insta5 from '../assets/insta5.jpg';
-import insta6 from '../assets/insta6.jpg';
-import insta7 from '../assets/insta7.jpg';
-import insta8 from '../assets/insta8.jpg';
-import insta9 from '../assets/insta9.jpg';
-import insta10 from '../assets/insta10.jpg';
-import insta11 from '../assets/insta11.jpg';
-import insta12 from '../assets/insta12.jpg';
+import insta1 from '../assets/insta1.png';
+import insta2 from '../assets/insta2.png';
+import insta3 from '../assets/insta3.png';
+import insta4 from '../assets/insta4.png';
+import insta5 from '../assets/insta5.png';
+import insta6 from '../assets/insta6.png';
+import insta7 from '../assets/insta7.png';
+import insta8 from '../assets/insta8.png';
+import insta9 from '../assets/insta9.png';
+import insta10 from '../assets/insta10.png';
+import insta11 from '../assets/insta11.png';
+import insta12 from '../assets/insta12.png';
 
 
 // List of Instagram links to show:
