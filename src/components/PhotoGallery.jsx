@@ -25,7 +25,7 @@ import insta12 from '../assets/Insta12.png';
 
 
 // List of Instagram links to show:
-const instagramposts = [
+const instagramPosts = [
  { img: insta1, url:  'https://www.instagram.com/p/DLkZ9b3SIsO/',},
  { img: insta2, url:  'https://www.instagram.com/p/DLkWBveyPmu/',},
  { img: insta3, url:  'https://www.instagram.com/p/DLkUn48yYlu/',},
