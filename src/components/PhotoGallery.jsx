@@ -9,13 +9,35 @@ import { Badge } from './ui/badge';
 import { Camera, Upload, Trash2, Edit, Eye, Lock, Unlock, Plus, X, Search, RefreshCw } from 'lucide-react';
 import { motion } from 'framer-motion';
 import tournamentLogo from '../assets/logo400.png';
-import { API_ENDPOINTS } from '../config/api';
+/*import { API_ENDPOINTS } from '../config/api';*/
 
 
 
+// List of Instagram links to show:
+const instagramLinks = [
+  'https://www.instagram.com/p/DLkZ9b3SIsO/',
+  'https://www.instagram.com/p/DLkWBveyPmu/',
+  'https://www.instagram.com/p/DLkUn48yYlu/',
+  'https://www.instagram.com/p/DJ8r7HJyt_C/',
+  'https://www.instagram.com/p/DDq-9Ktyi2K/',
+  'https://www.instagram.com/p/DDq-4c4S_MO/',
+  'https://www.instagram.com/p/DDqr3wbSWIA/',
+  'https://www.instagram.com/p/DDosYT9CBUG/?img_index=1',
+  'https://www.instagram.com/p/DDhYm9NSCKD/?img_index=1',
+  'https://www.instagram.com/p/DDhGfGkSLM5/?img_index=1',
+  'https://www.instagram.com/p/DDeh4MRSQdM/',
+  'https://www.instagram.com/p/DDcCxU7y1I4/',
+];
+
+// Util to extract post code for thumbnail fetching
+function getInstagramCode(url) {
+  // Extract code from: https://www.instagram.com/p/{code}/
+  const m = url.match(/instagram\.com\/p\/([^/?]+)/);
+  return m ? m[1] : '';
+}
 
 const PhotoGallery = () => {
-  const [photos, setPhotos] = useState([]);
+  /*const [photos, setPhotos] = useState([]);
   const [isAdmin, setIsAdmin] = useState(false);
   const [adminPassword, setAdminPassword] = useState('');
   const [adminToken, setAdminToken] = useState('');
@@ -242,7 +264,8 @@ const PhotoGallery = () => {
     const matchesCategory = selectedCategory === 'all' || photo.category === selectedCategory;
     
     return matchesSearch && matchesCategory;
-  });
+  }); 
+  commented for showing only instagram*/
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-green-50 to-blue-50 p-4">
@@ -259,69 +282,47 @@ const PhotoGallery = () => {
             className="w-20 h-20 mx-auto mb-4 rounded-full shadow-lg"
           />
           <h1 className="text-4xl font-bold text-gray-800 mb-2">Photo Gallery</h1>
-          <p className="text-gray-600">Capturing the moments of Onam Football Tournament 2025</p>
+          <p className="text-gray-600">Follow us on Instagram for highlights.<br />Click a post to view it on Instagram.</p>
         </motion.div>
+   {/* Only Show Instagram Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+          {instagramLinks.map((url, idx) => {
+            const code = getInstagramCode(url);
+            // Instagram's thumbnail URL pattern may change; this works for most public posts:
+            const thumbnail = code
+              ? `https://instagram.com/p/${code}/media/?size=m`
+              : 'https://www.instagram.com/static/images/web/mobile_nav_type_logo.png/735145cfe0a4.png'; // fallback
 
-        {/* Admin Controls */}
-        <Card className="mb-6">
-          <CardHeader>
-            <div className="flex justify-between items-center">
-              <div className="flex items-center gap-2">
-                <Camera className="w-5 h-5" />
-                <CardTitle>Gallery Management</CardTitle>
-              </div>
-              <div className="flex items-center gap-2">
-                <Button
-                  variant="outline"
-                  size="sm"
-                  onClick={fetchPhotos}
-                  disabled={fetchingPhotos}
+            return (
+              <Card key={url} className="overflow-hidden hover:shadow-xl transition-shadow cursor-pointer group">
+                <a
+                  href={url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full"
+                  title="View on Instagram"
                 >
-                  <RefreshCw className={`w-4 h-4 mr-2 ${fetchingPhotos ? 'animate-spin' : ''}`} />
-                  Refresh
-                </Button>
-                {isAdmin ? (
-                  <Button variant="outline" size="sm" onClick={handleAdminLogout}>
-                    <Unlock className="w-4 h-4 mr-2" />
-                    Logout Admin
-                  </Button>
-                ) : (
-                  <Dialog open={showAdminLogin} onOpenChange={setShowAdminLogin}>
-                    <DialogTrigger asChild>
-                      <Button variant="outline" size="sm">
-                        <Lock className="w-4 h-4 mr-2" />
-                        Admin Login
-                      </Button>
-                    </DialogTrigger>
-                    <DialogContent>
-                      <DialogHeader>
-                        <DialogTitle>Admin Login</DialogTitle>
-                        <DialogDescription>
-                          Enter admin password to upload and manage photos
-                        </DialogDescription>
-                      </DialogHeader>
-                      <div className="space-y-4">
-                        <Input
-                          type="password"
-                          placeholder="Admin Password"
-                          value={adminPassword}
-                          onChange={(e) => setAdminPassword(e.target.value)}
-                          onKeyPress={(e) => e.key === 'Enter' && handleAdminLogin()}
-                        />
-                        <Button onClick={handleAdminLogin} disabled={loading} className="w-full">
-                          {loading ? 'Logging in...' : 'Login'}
-                        </Button>
-                      </div>
-                    </DialogContent>
-                  </Dialog>
-                )}
-              </div>
-            </div>
-          </CardHeader>
-        </Card>
-
+                  <CardContent className="p-0 relative flex flex-col h-full">
+                    <img
+                      src={thumbnail}
+                      alt="Instagram preview"
+                      loading="lazy"
+                      className="w-full h-64 object-cover group-hover:opacity-80 transition-opacity bg-gray-200"
+                      style={{ background: '#fafafa' }}
+                    />
+                    <div className="absolute inset-0 flex items-center justify-center opacity-0 group-hover:opacity-100 transition bg-black/40">
+                      <span className="text-white font-bold text-xl">View on Instagram</span>
+                    </div>
+                  </CardContent>
+                </a>
+              </Card>
+            );
+          })}
+        </div>
+		
+        
         {/* Upload Form - Admin Only */}
-        {isAdmin && (
+        {/*isAdmin && (
           <Card className="mb-6">
             <CardHeader>
               <CardTitle className="flex items-center gap-2">
@@ -400,40 +401,12 @@ const PhotoGallery = () => {
               </form>
             </CardContent>
           </Card>
-        )}
+        )*/}
 
-        {/* Search and Filter */}
-        <Card className="mb-6">
-          <CardContent className="pt-6">
-            <div className="flex flex-col md:flex-row gap-4">
-              <div className="flex-1">
-                <div className="relative">
-                  <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-4 h-4" />
-                  <Input
-                    placeholder="Search photos..."
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="pl-10"
-                  />
-                </div>
-              </div>
-              <div className="md:w-48">
-                <select
-                  value={selectedCategory}
-                  onChange={(e) => setSelectedCategory(e.target.value)}
-                  className="w-full p-2 border border-gray-300 rounded-md"
-                >
-                  {categories.map(cat => (
-                    <option key={cat.value} value={cat.value}>{cat.label}</option>
-                  ))}
-                </select>
-              </div>
-            </div>
-          </CardContent>
-        </Card>
+       
 
         {/* Photos Grid */}
-        {fetchingPhotos ? (
+        {/*fetchingPhotos ? (
           <div className="text-center py-12">
             <RefreshCw className="w-8 h-8 animate-spin mx-auto mb-4 text-gray-400" />
             <p className="text-gray-500">Loading photos...</p>
@@ -508,10 +481,10 @@ const PhotoGallery = () => {
               </motion.div>
             ))}
           </div>
-        )}
+        )*/}
 
         {/* Photo Modal */}
-        {selectedPhoto && (
+        {/*selectedPhoto && (
           <Dialog open={!!selectedPhoto} onOpenChange={() => setSelectedPhoto(null)}>
             <DialogContent className="max-w-4xl max-h-[90vh] overflow-hidden">
               <DialogHeader>
@@ -556,7 +529,7 @@ const PhotoGallery = () => {
               </div>
             </DialogContent>
           </Dialog>
-        )}
+        ) */}
       </div>
     </div>
   );

@@ -629,6 +629,167 @@ const RegistrationPage = () => {
   </Card>
 </motion.div>
 
+<motion.div
+  initial={{ opacity: 0, y: 20 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ delay: 0.6 }}
+  className="mt-10"
+>
+          <Card>
+            <CardHeader>
+              <CardTitle>Rage 7-a-Side Football Tournament Rules and Regulations</CardTitle>
+            </CardHeader>
+            <CardContent>
+  <div className="max-w-3xl mx-auto py-10 px-6 bg-white rounded-lg shadow-sm">
+    <h1 className="text-3xl font-bold mb-4 text-center text-green-700">
+      Rage 7-a-Side Football Tournament Rules and Regulations
+    </h1>
+
+    {/* Reporting and Warm-Up */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Reporting and Warm-Up
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>
+          All teams must report to the ground at least <b>20 minutes prior</b> to their scheduled match time.
+        </li>
+        <li>
+          Players should complete warm-up and be fully ready at least <b>8 minutes before</b> the start of the match.
+        </li>
+        <li>Proper warm-up is recommended to avoid injuries.</li>
+      </ul>
+    </section>
+
+    {/* Team Composition */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Team Composition
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>Each team consists of <b>7 players on the field</b> at any time, including the goalkeeper.</li>
+        <li>Squad size up to <b>12 registered players</b> per tournament; only 7 on pitch at a time.</li>
+        <li>
+          Substitutions are <b>unlimited and rolling</b>, must be authorized by the referee before entering.
+        </li>
+      </ul>
+    </section>
+
+    {/* Player Equipment and Uniform */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Player Equipment and Uniform
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>Shin guards are <b>mandatory</b> for all players.</li>
+        <li>No ornaments, jewelry, or accessories allowed.</li>
+        <li>Fingernails must be <b>trimmed</b>.</li>
+        <li>All players must wear same color jersey, shorts, and socks.</li>
+        <li>Shorts and socks should preferably be black/white or match jersey color.</li>
+        <li>Proper football boots required. Barefoot/inappropriate footwear not allowed.</li>
+      </ul>
+    </section>
+
+    {/* Match Duration and Structure */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Match Duration and Structure
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>
+          Matches have two halves, <b>12–15 minutes each</b>, with a 2–5 min halftime break.
+        </li>
+        <li>Duration may vary, will be announced prior to tournament.</li>
+        <li>No offside law applies.</li>
+      </ul>
+    </section>
+
+    {/* Playing Rules */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">Playing Rules</h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>
+          Played according to FIFA Laws, modified for 7-a-side.
+        </li>
+        <li>
+          No slide tackles advised unless otherwise specified.
+        </li>
+        <li>Throw-ins by hand. Heading permitted.</li>
+        <li>No offside.</li>
+      </ul>
+    </section>
+
+    {/* Discipline and Conduct */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Discipline and Conduct
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>No dissent or arguments with referee. Referee’s decision is final.</li>
+        <li>No misconduct toward opponents: no foul language, altercations or unsporting behavior.</li>
+        <li>
+          Yellow &amp; Red cards: 2 yellow cards = red &amp; suspension; straight red = ejection and at least one-match suspension.
+        </li>
+        <li>
+          Offensive behavior by players or spectators can lead to removal or disqualification.
+        </li>
+      </ul>
+    </section>
+
+    {/* Match Start Protocol */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Match Start Protocol
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>Teams must be ready at kick-off time.</li>
+        <li>Up to 5 min late: start with 2-goal deficit. More than 5 min late: match forfeited 0–3.</li>
+      </ul>
+    </section>
+
+    {/* Safety and Fair Play */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Safety and Fair Play
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>Shin guards mandatory. No metal studs on boots.</li>
+        <li>Injured players should leave the field promptly to avoid delay.</li>
+        <li>Unfair or dangerous play will be penalized.</li>
+      </ul>
+    </section>
+
+    {/* General Guidelines */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        General Guidelines
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>Teams should bring a ball as prescribed.</li>
+        <li>Ensure field &amp; goal sizes match tournament standards.</li>
+        <li>At least 4 players needed to start a match.</li>
+        <li>Hydrate and rest between games.</li>
+      </ul>
+    </section>
+
+    {/* Additional Provisions */}
+    <section className="mb-6">
+      <h2 className="text-xl font-semibold mb-2 text-green-600">
+        Additional Provisions
+      </h2>
+      <ul className="list-disc pl-5 space-y-1 text-gray-700">
+        <li>
+          If a knockout match is tied, <b>extra time or penalties</b> to decide winner.
+        </li>
+        <li>
+          Organizers reserve the right to amend rules or discipline as needed.
+        </li>
+      </ul>
+    </section>
+  </div>
+     </CardContent>
+          </Card>
+        </motion.div>
 
         {/* Contact Section */}
         <motion.div
