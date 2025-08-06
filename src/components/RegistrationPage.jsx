@@ -628,6 +628,7 @@ const RegistrationPage = () => {
     </div>
   </Card>
 </motion.div>
+{/* Tournament Rules */} 
 
 <motion.div
   initial={{ opacity: 0, y: 20 }}
@@ -637,14 +638,11 @@ const RegistrationPage = () => {
 >
           <Card>
             <CardHeader>
-              <CardTitle>Rage 7-a-Side Football Tournament Rules and Regulations</CardTitle>
+              <CardTitle className="text-3xl font-bold mb-4 text-center text-green-700">Rage 7-a-Side Football Tournament Rules and Regulations</CardTitle>
             </CardHeader>
             <CardContent>
   <div className="max-w-3xl mx-auto py-10 px-6 bg-white rounded-lg shadow-sm">
-    <h1 className="text-3xl font-bold mb-4 text-center text-green-700">
-      Rage 7-a-Side Football Tournament Rules and Regulations
-    </h1>
-
+    
     {/* Reporting and Warm-Up */}
     <section className="mb-6">
       <h2 className="text-xl font-semibold mb-2 text-green-600">
