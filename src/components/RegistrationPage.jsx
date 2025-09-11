@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Button } from './ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from './ui/card';
 import { Input } from './ui/input';
@@ -42,7 +42,16 @@ const RegistrationPage = () => {
   const [submitted, setSubmitted] = useState(false);
   const [submissionError, setSubmissionError] = useState('');
   const [activeTab, setActiveTab] = useState('player');
-
+  useEffect(() => {
+    if (window.tournamentRulesScroll === true) {
+      setTimeout(() => {
+        const el = document.getElementById("tournament-rules");
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+        window.tournamentRulesScroll = false;
+      }, 100);
+    }
+  }, []);
+  
   const playingPositions = [
     'Goalkeeper (GK)',
     'Defender (CB/LB/RB)',
@@ -630,12 +639,14 @@ const RegistrationPage = () => {
 </motion.div>
 {/* Tournament Rules */} 
 
+ <div id="tournament-rules">
 <motion.div
   initial={{ opacity: 0, y: 20 }}
   animate={{ opacity: 1, y: 0 }}
   transition={{ delay: 0.6 }}
   className="mt-10"
 >
+
           <Card>
 				<CardHeader>
 				  <CardTitle className="text-3xl mb-4 text-center text-green-700">
@@ -673,6 +684,8 @@ const RegistrationPage = () => {
         <li>
           Substitutions are <b>unlimited and rolling</b>, must be authorized by the referee before entering.
         </li>
+		<li> * Each team may have upto 3 Non Malayalee players *.
+		</li>
       </ul>
     </section>
 
@@ -701,8 +714,7 @@ const RegistrationPage = () => {
           Matches have two halves, <b>12–15 minutes each</b>, with a 2–5 min halftime break.
         </li>
         <li>Duration may vary, will be announced prior to tournament.</li>
-        <li>No offside law applies.</li>
-      </ul>
+        </ul>
     </section>
 
     {/* Playing Rules */}
@@ -716,7 +728,7 @@ const RegistrationPage = () => {
           No slide tackles advised unless otherwise specified.
         </li>
         <li>Throw-ins by hand. Heading permitted.</li>
-        <li>No offside.</li>
+        <li>Same as Kerala 7's rule.</li>
       </ul>
     </section>
 
@@ -791,6 +803,7 @@ const RegistrationPage = () => {
      </CardContent>
           </Card>
         </motion.div>
+		</div>
 
         {/* Contact Section */}
         <motion.div

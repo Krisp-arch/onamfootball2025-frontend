@@ -3,9 +3,34 @@ import { Card, CardContent } from './ui/card';
 import { Mail, Phone, MapPin, Instagram, Facebook, Twitter } from 'lucide-react';
 import tournamentLogo from '../assets/logo400.png';
 
-const Footer = () => {
+const Footer = ({ onNavigate }) => {
   return (
     <footer className="bg-gray-900 text-white">
+	  <div className="flex flex-col md:flex-row justify-center items-center gap-6">
+        <span
+          onClick={() => onNavigate('registration')}
+          className="cursor-pointer hover:underline font-semibold text-green-700 mx-2"
+        >
+          Register
+        </span>
+        <span
+          onClick={() => onNavigate('gallery')}
+          className="cursor-pointer hover:underline font-semibold text-green-700 mx-2"
+        >
+          Photo Gallery
+        </span>
+        <span
+          onClick={() => {
+            // Signal RegistrationPage to scroll to rules
+            window.tournamentRulesScroll = true;
+            onNavigate('registration');
+          }}
+          className="cursor-pointer hover:underline font-semibold text-green-700 mx-2"
+        >
+          Tournament Rules
+        </span>
+      </div>
+	  
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Tournament Info */}
@@ -85,16 +110,16 @@ const Footer = () => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <a href="#" className="block text-gray-300 hover:text-white transition-colors">
+              <a  className="block text-gray-300 hover:text-white transition-colors">
                 Tournament Rules
               </a>
-              <a href="#" className="block text-gray-300 hover:text-white transition-colors">
+              <a  className="block text-gray-300 hover:text-white transition-colors">
                 Registration Guidelines
               </a>
-              <a href="#" className="block text-gray-300 hover:text-white transition-colors">
+              <a  className="block text-gray-300 hover:text-white transition-colors">
                 Sponsorship Opportunities
               </a>
-              <a href="#" className="block text-gray-300 hover:text-white transition-colors">
+              <a  className="block text-gray-300 hover:text-white transition-colors">
                 Photo Gallery
               </a>
               <a 

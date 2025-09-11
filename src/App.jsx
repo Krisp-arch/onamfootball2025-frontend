@@ -42,7 +42,7 @@ function App() {
       <main className="flex-1">
         {renderCurrentPage()}
       </main>
-      <Footer />
+      <Footer onNavigate={handleNavigation} />
     </div>
   );
 }

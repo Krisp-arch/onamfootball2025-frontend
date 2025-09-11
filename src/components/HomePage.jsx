@@ -70,6 +70,7 @@ const HomePage = ({ onNavigate }) => {
 				</p>
 			  <p className="text-sm md:text-sm opacity-90 mb-2"> 
 				Register: Team (7+3) ₹5000 | Individual ₹750
+				* Team may have upto 3 Non Malayalee players
 			</p>
 			  <p className="text-sm md:text-sm opacity-90 mb-2"> 
 				Win ₹25,000 + trophies & medals; Runners-up ₹15,000 + trophies & medals.</p>
