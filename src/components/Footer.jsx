@@ -6,31 +6,7 @@ import tournamentLogo from '../assets/logo400.png';
 const Footer = ({ onNavigate }) => {
   return (
     <footer className="bg-gray-900 text-white">
-	  <div className="flex flex-col md:flex-row justify-center items-center gap-6">
-        <span
-          onClick={() => onNavigate('registration')}
-          className="cursor-pointer hover:underline font-semibold text-green-700 mx-2"
-        >
-          Register
-        </span>
-        <span
-          onClick={() => onNavigate('gallery')}
-          className="cursor-pointer hover:underline font-semibold text-green-700 mx-2"
-        >
-          Photo Gallery
-        </span>
-        <span
-          onClick={() => {
-            // Signal RegistrationPage to scroll to rules
-            window.tournamentRulesScroll = true;
-            onNavigate('registration');
-          }}
-          className="cursor-pointer hover:underline font-semibold text-green-700 mx-2"
-        >
-          Tournament Rules
-        </span>
-      </div>
-	  
+	 
       <div className="container mx-auto px-4 py-12">
         <div className="grid md:grid-cols-4 gap-8">
           {/* Tournament Info */}
@@ -110,26 +86,53 @@ const Footer = ({ onNavigate }) => {
           <div>
             <h4 className="text-lg font-semibold mb-4">Quick Links</h4>
             <div className="space-y-2">
-              <a  className="block text-gray-300 hover:text-white transition-colors">
-                Tournament Rules
-              </a>
-              <a  className="block text-gray-300 hover:text-white transition-colors">
-                Registration Guidelines
-              </a>
-              <a  className="block text-gray-300 hover:text-white transition-colors">
-                Sponsorship Opportunities
-              </a>
-              <a  className="block text-gray-300 hover:text-white transition-colors">
-                Photo Gallery
-              </a>
-              <a 
-                href="https://ragefootballclub.com" 
-                target="_blank" 
-                rel="noopener noreferrer"
-                className="block text-gray-300 hover:text-white transition-colors"
-              >
-                Rage Football Academy
-              </a>
+            <ul>
+  <li>
+    <span
+      onClick={() => {
+        window.tournamentRulesScroll = true;
+        onNavigate('registration');
+      }}
+      className="cursor-pointer hover:underline"
+    >
+      Tournament Rules
+    </span>
+  </li>
+  <li>
+    <span
+      onClick={() => onNavigate('registration')}
+      className="cursor-pointer hover:underline"
+    >
+      Registration Guidelines
+    </span>
+  </li>
+  <li>
+    <span
+      onClick={() => onNavigate('registration')}
+      className="cursor-pointer hover:underline"
+    >
+      Sponsorship Opportunities
+    </span>
+  </li>
+  <li>
+    <span
+      onClick={() => onNavigate('gallery')}
+      className="cursor-pointer hover:underline"
+    >
+      Photo Gallery
+    </span>
+  </li>
+  <li>
+    <a
+      href="https://ragefootballclub.com"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="hover:underline"
+    >
+      Rage Football Academy
+    </a>
+  </li>
+</ul>
             </div>
           </div>
         </div>
