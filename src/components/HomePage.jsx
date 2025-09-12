@@ -66,7 +66,8 @@ const HomePage = ({ onNavigate }) => {
 			  <p className="text-sm md:text-sm opacity-90 mb-2 "> Team up or register solo — passion knows no limits.
 			  </p>
 			  <p className="text-sm md:text-sm opacity-90 mb-2"> 
-				Dates: Sept 13, 14, 20 & 28
+				Dates: Sept 20, 21, 27 & 28
+				* Revised due to Rains and Ground condition
 				</p>
 			  <p className="text-sm md:text-sm opacity-90 mb-2"> 
 				Register: Team (7+3) ₹5000 | Individual ₹750
@@ -157,7 +158,7 @@ const HomePage = ({ onNavigate }) => {
                 <CardTitle>Tournament Overview</CardTitle>
               </CardHeader>
               <CardContent>
-                <p className="text-gray-600">Dates: September 13, 14, 20 & 28 </p>
+                <p className="text-gray-600">Dates: September 20, 21, 27 & 28 </p>
 				<p className="text-gray-600">(Weekends only)</p>
                 <p className="text-sm text-gray-500 mt-2">Venue: A2Z Ground. Tellapur.</p>
 				<p className="text-sm text-gray-500 mt-2">Hosted by: RAGE football Academy to bring Kerala's spirit alive in Hyderabad </p>
