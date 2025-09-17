@@ -681,9 +681,6 @@ const RegistrationPage = () => {
       <ul className="list-disc pl-5 space-y-1 text-gray-700">
         <li>Each team consists of <b>7 players on the field</b> at any time, including the goalkeeper.</li>
         <li>Squad size up to <b>12 registered players</b> per tournament; only 7 on pitch at a time.</li>
-        <li>
-          Substitutions are <b>unlimited and rolling</b>, must be authorized by the referee before entering.
-        </li>
 		<li> * Each team may have upto 3 Non Malayalee players *.
 		</li>
       </ul>
@@ -728,7 +725,7 @@ const RegistrationPage = () => {
           No slide tackles advised unless otherwise specified.
         </li>
         <li>Throw-ins by hand. Heading permitted.</li>
-        <li>Same as Kerala 7's rule.</li>
+        <li>Offside - Same as Kerala 7's rule.</li>
       </ul>
     </section>
 

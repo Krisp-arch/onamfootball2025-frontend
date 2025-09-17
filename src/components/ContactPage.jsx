@@ -24,27 +24,25 @@ const ContactPage = () => {
     setLoading(true);
     
     try {
-      // Simulate form submission
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      console.log('Contact Form:', contactForm);
-      setSubmitted(true);
-      
-      // Reset form after 3 seconds
-      setTimeout(() => {
-        setSubmitted(false);
-        setContactForm({
-          name: '',
-          email: '',
-          phone: '',
-          subject: '',
-          message: ''
-        });
-      }, 3000);
-    } catch (error) {
-      console.error('Form submission failed:', error);
-    } finally {
-      setLoading(false);
-    }
+  const response = await fetch(API_ENDPOINTS.REGISTER-CONTACT, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(contactForm),
+  });
+  const result = await response.json();
+
+  if (response.ok && result.status === 'success') {
+    setSubmitted(true);
+    setContactForm({ name: '', email: '', phone: '', subject: '', message: '' });
+    setTimeout(() => setSubmitted(false), 3500);
+	  } else {
+		// Show an error message if needed
+		alert(result.error || 'Could not submit the contact form. Try again.');
+	  }
+	} catch (error) {
+	  alert('Submission failed, please try again.');
+	  console.error('Contact form error:', error);
+	}
   };
 
   const handleInputChange = (field, value) => {

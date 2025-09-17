@@ -10,4 +10,5 @@ export const API_ENDPOINTS = {
   GALLERY_UPLOAD: `${API_BASE_URL}/api/gallery-upload`,
   GALLERY_DELETE: `${API_BASE_URL}/api/gallery-delete`,
   GALLERY_CATEGORIES: `${API_BASE_URL}/api/gallery-categories`,
+  REGISTER_CONTACT: `${API_BASE_URL}/api/register-contact`,
 };
