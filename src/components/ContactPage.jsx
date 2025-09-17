@@ -7,6 +7,7 @@ import { Textarea } from './ui/textarea';
 import { Mail, Phone, MapPin, Clock, Instagram, Facebook, Twitter, Send } from 'lucide-react';
 import { motion } from 'framer-motion';
 import tournamentLogo from '../assets/logo400.png';
+import { API_ENDPOINTS } from '../config/api';
 
 const ContactPage = () => {
   const [contactForm, setContactForm] = useState({
@@ -43,6 +44,9 @@ const ContactPage = () => {
 	  alert('Submission failed, please try again.');
 	  console.error('Contact form error:', error);
 	}
+	finally {
+    setLoading(false);
+  }
   };
 
   const handleInputChange = (field, value) => {
