@@ -25,7 +25,7 @@ const ContactPage = () => {
     setLoading(true);
     
     try {
-  const response = await fetch(API_ENDPOINTS.REGISTER-CONTACT, {
+  const response = await fetch(API_ENDPOINTS.REGISTER_CONTACT, {
     method: 'POST',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(contactForm),
